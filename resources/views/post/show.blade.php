@@ -5,7 +5,7 @@
 <a href="/post" class="btn btn-default"> Go Back</a>
 <h1>{{$posts->title}}</h1>
     <div>
-        {{$posts->body}}
+        {!!$posts->body!!}
     </div>
 
 <hr>
