@@ -46,7 +46,7 @@ class PostsController extends Controller
        $post->body = $request->input('body');
        $post->save();
        
-       return redirect('/post')->with('success','post created successfully');
+       return redirect('/post')->with('success','Post Created Successfully');
     }
 
     /**
@@ -69,7 +69,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts= Post::find($id);
+        return view("post.edit",compact('posts'));
     }
 
     /**
@@ -81,7 +82,17 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+        
+       $post = Post::find($id);
+       $post->title = $request->input('title');
+       $post->body = $request->input('body');
+       $post->save();
+       
+       return redirect('/post')->with('success','Post Updated Successfully');
     }
 
     /**
@@ -92,6 +103,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $post = Post::find($id);
+       $post->delete();
+       
+       return redirect('/post')->with('success','Post Removed Successfully');
     }
 }
