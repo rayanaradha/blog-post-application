@@ -12,6 +12,14 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index', 'show']]);
+    }
+    
+    
+    
+    
     public function index()
     {
         $posts= Post::orderBy('created_at','desc')->paginate(6);
@@ -71,7 +79,12 @@ class PostsController extends Controller
     public function edit($id)
     {
         $posts= Post::find($id);
-        return view("post.edit",compact('posts'));
+       if(Auth()->user()->id == $posts->user->id){
+           return view("post.edit",compact('posts'));
+        }
+        else{
+           return redirect("/post")->with("error" , "unauthorized");
+        }
     }
 
     /**
