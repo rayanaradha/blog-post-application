@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <h1>Edit Posts</h1>
   {!! Form::open(['action' => ['PostsController@update', $posts->id] , 'method' => 'post']) !!}
