@@ -15,15 +15,19 @@
                         <tr>
                             <th>Title</th>
                             <th></th>
-                            <th></th>
+
                         </tr>
                      @foreach($userPosts as $userPost)
                      <tr>
-                        <td> {{$userPost->title}} </td>
-                        <td> <a href="/post/{{$userPost->id}}/edit" class="btn btn-primary"> Edit</a> </td>
-                        <td>{!! Form::open(['action' => ['PostsController@destroy', $userPost->id] , 'method' => 'post' ,'class' => 'pull-right']) !!}
+                        <td > {{$userPost->title}} </td>
+                        
+                        <td class="pull-right">
+                            <a href="/post/{{$userPost->id}}" class="btn btn-success"> View</a> &nbsp;&nbsp;
+                            <a href="/post/{{$userPost->id}}/edit" class="btn btn-primary"> Edit</a> &nbsp;&nbsp;
+                            {!! Form::open(['action' => ['PostsController@destroy', $userPost->id] , 'method' => 'post' ,'class' => 'pull-right']) !!}
                             {{Form::hidden('_method','DELETE')}}  
-                            {{Form::submit('Delete',  ['class'=>'btn btn-danger'])}}  </td>    
+                            {{Form::submit('Delete',  ['class'=>'btn btn-danger'])}}  
+                        </td>    
                         
                      </tr>
                      @endforeach
