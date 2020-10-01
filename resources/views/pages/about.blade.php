@@ -10,4 +10,6 @@
         Blog content can appear as posts on one continuous streaming page or posts on individual pages reachable through one or more pages set up in a list-style format as post title links, excerpts and related tags. 
         All posts or links to posts are typically displayed to readers in reverse chronological order with the most recent content appearing first.
         </p>
+        
+       <p> The exact date and year of the first use of the term “blog” is still debated by scholars. Most believe that it happened in 1999 as the natural truncation of a particular description of this type of content, “web log” or “weblog,” into the shortened form. Some debate exists on pronunciation. Obviously, the term describes a diary or log located and accessible on the World Wide Web. As time passed, some people thought that “weblog” should be pronounced “we blog” to refer to individuals performing the action of blogging</p>
 @endsection      
